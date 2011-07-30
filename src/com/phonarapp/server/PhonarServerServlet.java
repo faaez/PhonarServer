@@ -3,7 +3,7 @@ package com.phonarapp.server;
 import java.io.IOException;
 import javax.servlet.http.*;
 
-import com.location.phonar.common.CommonApi;
+import com.phonarapp.common.CommonApi;
 
 @SuppressWarnings("serial")
 public class PhonarServerServlet extends HttpServlet {
