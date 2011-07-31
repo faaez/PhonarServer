@@ -2,8 +2,6 @@ package com.phonarapp.server;
 
 import java.util.List;
 
-import org.apache.tools.ant.types.resources.Tokens;
-
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -13,9 +11,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
 
 public class DataAccessLayer {
-	
-	public static final String AUTH_TOKEN_STRING = "DQAAAMMAAACL7u3MM621pp26GLzkRT9ELIXGxqPBOPRZrWezKkujGzKqit2ZkSun8jXxMVpUe4g2MDGT18RGuFaSFLIcdLkznm1Lw05tiDD7trm9dsNgOA7sPIsejdRiNv1EcZ_ZXKug5CuNYkQN0EbjtWomDyi-xBLWAYZo_8LKxaBm3xfLyMEYx3T2r41NlrnPQU5Wnc47_Q0O0IFkKhboayg6vNHKlVFtYJOIDcJblknuD0mL8lvQjCBQmKeop80LZuotkKEEKesjziOiPYphNVsj-cMg";
-	
+		
 	public static void registerUser(String number, String registrationId) {
 		Key userKey = KeyFactory.createKey("User", number);
 		Entity entity = new Entity(userKey);
@@ -31,8 +27,12 @@ public class DataAccessLayer {
 			= DatastoreServiceFactory.getDatastoreService();
 		List<Entity> users = datastore.prepare(query).asList(
 				FetchOptions.Builder.withLimit(1));
-		Entity user = users.get(0);
-		return (String) user.getProperty("registrationId");
+		if (users.size() > 0) {
+			Entity user = users.get(0);
+			return (String) user.getProperty("registrationId");
+		} else {
+			return null;
+		}
 	}
 	
 	public static void storeAuthToken(String token) {
@@ -50,7 +50,11 @@ public class DataAccessLayer {
 	    	= DatastoreServiceFactory.getDatastoreService();
 	    List<Entity> tokens = datastore.prepare(query).asList(
 	    		FetchOptions.Builder.withLimit(1));
-	    //Entity token = tokens.get(0);
-		return AUTH_TOKEN_STRING;
+	    if (tokens.size() > 0) {
+	    	Entity token = tokens.get(0);
+	    	return (String) token.getProperty("token");
+	    } else {
+	    	return C2DMPusher.AUTH_TOKEN_STRING;
+	    }
 	}
 }
