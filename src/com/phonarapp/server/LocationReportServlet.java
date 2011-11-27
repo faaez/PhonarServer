@@ -33,7 +33,7 @@ public class LocationReportServlet extends HttpServlet {
 		map.put(DATA + CommonApi.LONGITUDE_PARAM, longitude);
 		map.put(DATA + CommonApi.ALTITUDE_PARAM, altitude);
 		
-		boolean result = C2DMPusher.sendNoRetry(regId, "somthing", map, false);
+		boolean result = C2DMPusher.sendNoRetry(regId, "something", map, false);
 		if (!result) {
 			PhonarServerServlet.LOG.severe("HOLY SHIT RESULT FAILED");
 		}

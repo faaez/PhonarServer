@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.phonarapp.common.CommonApi;
 
 @SuppressWarnings("serial")
-public class PhonarServerServlet extends HttpServlet  {
+public class PhonarServerServlet extends HttpServlet {
 	
 	public static final Logger LOG 
 		= Logger.getLogger(PhonarServerServlet.class.getName());
