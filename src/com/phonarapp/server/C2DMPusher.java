@@ -9,6 +9,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -130,8 +131,8 @@ public class C2DMPusher {
 
 		StringBuilder builder = new StringBuilder();
 
-		builder.append("Email=jeffreyhodesphonarapp@gmail.com").append("&");
-		builder.append("Passwd=bronarBRONAR").append("&");
+		builder.append("Email=apphonar@gmail.com").append("&");
+		builder.append("Passwd=phonarphonar").append("&");
 		builder.append("accountType=HOSTED_OR_GOOGLE").append("&");
 		builder.append("Google-cURL-Example").append("&");
 		builder.append("service=ac2dm");
