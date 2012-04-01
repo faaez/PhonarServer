@@ -131,8 +131,8 @@ public class C2DMPusher {
 
 		StringBuilder builder = new StringBuilder();
 
-		builder.append("Email=apphonar@gmail.com").append("&");
-		builder.append("Passwd=phonarphonar").append("&");
+		builder.append("Email=jeffreyhodesphonarapp@gmail.com").append("&");
+		builder.append("Passwd=bronarBRONAR").append("&");
 		builder.append("accountType=HOSTED_OR_GOOGLE").append("&");
 		builder.append("Google-cURL-Example").append("&");
 		builder.append("service=ac2dm");
